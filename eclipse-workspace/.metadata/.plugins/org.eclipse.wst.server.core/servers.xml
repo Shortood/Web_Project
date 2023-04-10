@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<servers>
+  <server auto-publish-setting="2" auto-publish-time="1" configuration-id="/Servers/Tomcat v9.0 Server at localhost-config" deployDir="wtpwebapps" hostname="localhost" id="Tomcat v9.0 Server at localhost" name="Tomcat v9.0 Server at localhost" runtime-id="Apache Tomcat v9.0" server-type="org.eclipse.jst.server.tomcat.90" server-type-id="org.eclipse.jst.server.tomcat.90" start-timeout="45" stop-timeout="15" testEnvironment="true" timestamp="85">
+    <list key="modules" value0="Web_Work_12::org.eclipse.jst.jee.server:Web_Work_12::jst.web::4.0" value1="test::org.eclipse.jst.jee.server:test::jst.web::4.0" value2="Web_Work_13-2::org.eclipse.jst.jee.server:Web_Work_13-2::jst.web::4.0" value3="Web_Work_13-1::org.eclipse.jst.jee.server:Web_Work_13-1::jst.web::4.0" value4="web-project-en::org.eclipse.jst.jee.server:web-project-en::jst.web::4.0" value5="goggogo::org.eclipse.jst.jee.server:goggogo::jst.web::4.0" value6="Web_project29::org.eclipse.jst.jee.server:Web_project29::jst.web::4.0" value7="web_project_end1::org.eclipse.jst.jee.server:web_project_end1::jst.web::4.0" value8="Web_project_end3::org.eclipse.jst.jee.server:Web_project_end3::jst.web::4.0" value9="Web_project_endOfend::org.eclipse.jst.jee.server:Web_project_endOfend::jst.web::4.0"/>
+  </server>
+</servers>

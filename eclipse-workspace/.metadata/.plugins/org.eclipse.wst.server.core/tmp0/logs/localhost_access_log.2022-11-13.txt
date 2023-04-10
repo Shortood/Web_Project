@@ -1,0 +1,13 @@
+127.0.0.1 - - [13/Nov/2022:23:43:50 +0900] "GET / HTTP/1.1" 404 807
+0:0:0:0:0:0:0:1 - - [13/Nov/2022:23:43:52 +0900] "GET /Web_project/login.html HTTP/1.1" 200 454
+0:0:0:0:0:0:0:1 - - [13/Nov/2022:23:43:52 +0900] "GET /favicon.ico HTTP/1.1" 404 818
+0:0:0:0:0:0:0:1 - - [13/Nov/2022:23:46:09 +0900] "GET /Web_project/login.html HTTP/1.1" 200 533
+0:0:0:0:0:0:0:1 - - [13/Nov/2022:23:46:55 +0900] "GET /Web_project/login.html HTTP/1.1" 200 531
+0:0:0:0:0:0:0:1 - - [13/Nov/2022:23:47:33 +0900] "GET /Web_project/login.html HTTP/1.1" 200 561
+0:0:0:0:0:0:0:1 - - [13/Nov/2022:23:49:24 +0900] "GET /Web_project/login.html HTTP/1.1" 200 646
+0:0:0:0:0:0:0:1 - - [13/Nov/2022:23:50:30 +0900] "GET /Web_project/login.html HTTP/1.1" 200 656
+0:0:0:0:0:0:0:1 - - [13/Nov/2022:23:51:28 +0900] "GET /Web_project/login.html HTTP/1.1" 200 699
+0:0:0:0:0:0:0:1 - - [13/Nov/2022:23:53:06 +0900] "GET /Web_project/login.html HTTP/1.1" 200 711
+0:0:0:0:0:0:0:1 - - [13/Nov/2022:23:55:23 +0900] "GET /Web_project/login.html HTTP/1.1" 200 699
+0:0:0:0:0:0:0:1 - - [13/Nov/2022:23:56:02 +0900] "GET /Web_project/login.html HTTP/1.1" 200 699
+0:0:0:0:0:0:0:1 - - [13/Nov/2022:23:56:32 +0900] "GET /Web_project/login.html HTTP/1.1" 200 699

@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700,800');
+body {
+    font-family: Nanum Gothic,Segoe UI,Helveica,Arial,Malgun Gothic,sans-serif;
+ }
+#wrap {
+	width: 100%;
+	min-width: 450px;
+	height: auto;
+	z-index: 1;
+	background-color: #F2F2F2;
+	padding-top: 10px;
+}
+
+#main {
+	width: 90%;
+	min-width: 400px;
+	z-index: 2;
+	background-color: white;
+	padding-bottom: 3%;
+	margin: 5px 5% 0 5%;
+	height: auto;
+}
+
+.contents {
+	padding-left: 2%;
+	padding-right: 2%;
+	padding-top: 2%;
+}
+
+.category {
+	width: 100%;
+	height: 120px;
+	font-size: 20px;
+	border-collapse: collapse;
+	border: 1px solid black;
+}
+
+.category .name {
+	width: 10%;
+	text-align: center;
+}
+
+.category td {
+	text-align: left;
+	padding-left: 20px;
+	word-spacing: 20px;
+	height: 40px;
+	border-bottom: 1px solid black;
+	border-top: 1px solid black;
+}
+
+.category th {
+	border-bottom: 1px solid black;
+	border-top: 1px solid black;
+}
+
+.category input {
+	height: 25px;
+}
+
+.semitag button {
+	border: 1px solid black;
+	font-size: 16px;
+	height: 30px;
+	float: right;
+	background-color: rgb(218, 215, 215);
+}
+
+.menutag a {
+	padding-left: 4%;
+	word-spacing: 2px;
+}
+
+.semitag select {
+	border: 1px solid black;
+	height: 30px;
+	width: 100px;
+	background-color: rgb(218, 215, 215);
+	font-size: 17px;
+	float: left;
+}
+
+.semitag table {
+	padding-left: 25px;
+	padding-top: 10px;
+	width: 98%;
+}
+
+.foods td {
+	background-color: white;
+	text-align: center;
+	letter-spacing: 3px;
+	border: none;
+	height: 250px;
+}
+
+.foods {
+	width: 98%;
+}
+
+.foods img {
+	padding-top: 7px;
+	width: 286px;
+	height: 250px;
+	padding-bottom: 10px;
+}
+
+.info {
+	font-size: 16px;
+	padding-top: 5px;
+	letter-spacing: 0;
+	color: grey;
+}
+
+button {
+	border: none;
+	background-color: white;
+	font-size: 20px;
+}
+
+button:focus {
+	color: red;
+}
+.num_selected{
+	font-size:20px;
+}

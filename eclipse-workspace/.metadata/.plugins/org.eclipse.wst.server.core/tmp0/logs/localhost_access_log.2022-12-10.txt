@@ -1,0 +1,10 @@
+127.0.0.1 - - [10/Dec/2022:16:25:11 +0900] "GET / HTTP/1.1" 404 807
+0:0:0:0:0:0:0:1 - - [10/Dec/2022:16:25:16 +0900] "GET /Web_project27/signup.jsp HTTP/1.1" 200 1399
+0:0:0:0:0:0:0:1 - - [10/Dec/2022:16:25:16 +0900] "GET /Web_project27/login_signup.css HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [10/Dec/2022:16:25:16 +0900] "GET /favicon.ico HTTP/1.1" 404 818
+0:0:0:0:0:0:0:1 - - [10/Dec/2022:16:25:33 +0900] "POST /Web_project27/signup-db.jsp HTTP/1.1" 200 212
+0:0:0:0:0:0:0:1 - - [10/Dec/2022:16:25:33 +0900] "GET /Web_project27/image/green_tree.gif HTTP/1.1" 404 849
+0:0:0:0:0:0:0:1 - - [10/Dec/2022:16:25:45 +0900] "GET /Web_project27/signup.jsp HTTP/1.1" 200 1399
+0:0:0:0:0:0:0:1 - - [10/Dec/2022:16:25:57 +0900] "POST /Web_project27/signup-db.jsp HTTP/1.1" 200 212
+0:0:0:0:0:0:0:1 - - [10/Dec/2022:16:25:57 +0900] "GET /Web_project27/image/green_tree.gif HTTP/1.1" 404 849
+0:0:0:0:0:0:0:1 - - [10/Dec/2022:16:25:58 +0900] "GET /Web_project27/login.jsp HTTP/1.1" 200 759

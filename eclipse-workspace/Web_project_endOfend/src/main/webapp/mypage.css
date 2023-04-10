@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700,800');
+body {
+    font-family: Nanum Gothic,Segoe UI,Helveica,Arial,Malgun Gothic,sans-serif;
+ }
+#wrap {
+    width: 100%;
+    height: 100%;
+    font-size: 18px;
+    font-weight: 500;
+    font-family: 나눔고딕,Segoe UI,Helveica,Arial,Malgun Gothic,Dotum,sans-serif;
+}
+
+#head {
+    width: 100%;
+    height: auto;
+    font-size: 25px;
+    font-weight: 700;
+    padding: 5px 0px 5px 70px;
+}
+
+#section {
+    float: left;
+    width: 25%;
+    padding-left: 3%;
+    min-width: 250px;
+    max-width: 300px;
+    height: 100%;
+}
+
+.section_content {
+    padding: 20px 20px 20px 30px;
+}
+
+#main {
+    float: left;
+    width: 70%;
+    min-width: 20px;
+    height: 100%;
+}
+.contents{
+    float: left;
+    width: 70%;
+    min-width: 20px;
+    height: 100%;
+
+}
+.main_content {
+    width: 100%;
+    padding: 20px 15px 20px 65px;
+}
+
+table{
+    width: 100%;
+    margin:0;
+}
+td {
+    height: 40px;
+}
+.tag{
+    min-width: 100px;
+}
+.section_title {
+    font-size: 28px;
+    font-weight: 900;
+}
+
+.section_subTitle {
+    font-size: 25px;
+    font-weight: 700;
+    padding-bottom: 2px;
+}
+
+ul {
+    list-style-type: circle;
+    line-height: 40px;
+}
+
+
+li>a{
+    color: #6E6E6E;
+}
+
+a{
+    text-decoration: none;
+}
+
+a:hover{
+    color:#0174DF;
+}
+
+div[id=main] hr{
+    border-top: 1px dotted #bbb;
+}
+
+hr{
+    width: 95%;
+    
+}

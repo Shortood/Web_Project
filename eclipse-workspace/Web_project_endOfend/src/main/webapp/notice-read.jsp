@@ -1,0 +1,101 @@
+<%@ page language="java" contentType="text/html; charset=utf-8"
+	pageEncoding="utf-8"%>
+<%@ page import="java.sql.*"%>
+<%
+request.setCharacterEncoding("utf-8");
+Cookie[] cookies = request.getCookies();
+%>
+<html>
+<head>
+<title>게시판</title>
+<link href="board-read.css" rel="stylesheet">
+</head>
+<body>
+	<jsp:include page="maintools.jsp"></jsp:include>
+	<%
+	int ref = 0;
+	String id, date = "";
+	String name = "", title = "", content = "";
+	Connection conn = null;
+	Statement stmt = null;
+	ResultSet rs = null;
+	String boardname = getCookieValue(cookies, "NAME");
+	ref = Integer.parseInt(request.getParameter("ref"));
+
+	try {
+		Class.forName("com.mysql.jdbc.Driver");
+		String url = "jdbc:mysql://localhost:3306/webproject?serverTimezone=UTC";
+		conn = DriverManager.getConnection(url, "root", "0000");
+		stmt = conn.createStatement();
+		String sql = "select * from notice where ref=" + ref;
+		rs = stmt.executeQuery(sql);
+	} catch (Exception e) {
+		out.println("DB 연동 오류입니다. : " + e.getMessage());
+	}
+	if (rs != null) {
+		rs.next();
+		name = rs.getString("name");
+		title = rs.getString("title");
+		content = rs.getString("content");
+		content = content.replace("\r\n", "<br>");
+		ref = Integer.parseInt(rs.getString("ref"));
+		date = rs.getString("date");
+	}
+	%>
+	<div id="wrap">
+		<div id="main">
+			<div class="content">
+				<table>
+					<br>
+					<tr>
+						<td width="1800" height="40" colspan="4">
+							<h2><%=title%></h2>
+						</td>
+					</tr>
+					<tr>
+						<td height="10" width="100">글쓴이:</td>
+						<td><%=name%></td>
+						<td width="100">작성일:</td>
+						<td><%=date%></td>
+					</tr>
+				</table>
+				<hr>
+				<table>
+					<tr>
+						<td height="400" colspan="4"><%=content%></td>
+					</tr>
+				</table>
+				<hr>
+				<div class="option">
+					<%
+					if (name.equals(boardname)) {
+					%>
+					<button type="button"
+						onclick="location.href='notice-modify.jsp?ref=<%=ref%>'">
+						게시글 수정</a>
+						<button type="button"
+							onclick="location.href='notice-delete-db.jsp?ref=<%=ref%>'">
+							게시글 삭제</a>
+							<%
+							}
+							stmt.close();
+							conn.close();
+							%>
+							<button type="button" onclick="location.href='notice-list.jsp'">
+								게시글 목록 보기</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
+<%!private String getCookieValue(Cookie[] cookies, String name) {
+		String value = null;
+		if (cookies == null)
+			return null;
+		for (Cookie cookie : cookies) {
+			if (cookie.getName().equals(name))
+				return cookie.getValue();
+		}
+		return null;
+	}%>

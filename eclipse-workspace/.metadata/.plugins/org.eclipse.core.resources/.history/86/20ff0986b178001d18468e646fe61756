@@ -1,0 +1,161 @@
+<%@ page language="java" contentType="text/html; charset=utf-8"
+	pageEncoding="utf-8"%>
+<%@ page import="java.sql.*"%>
+<%
+request.setCharacterEncoding("utf-8");
+Cookie[] cookies = request.getCookies();
+%>
+<html>
+<head>
+<title>게시판</title>
+<link href="board-read.css" rel="stylesheet">
+</head>
+<body>
+<jsp:include page="maintools.jsp"></jsp:include>
+	<%
+	int ref = 0;
+	String id, date = "";
+	String name = "", title = "", content = "";
+	Connection conn = null;
+	Statement stmt = null;
+	ResultSet rs = null;
+	String boardname = getCookieValue(cookies, "NAME");
+	ref = Integer.parseInt(request.getParameter("ref"));
+
+	try {
+		Class.forName("com.mysql.jdbc.Driver");
+		String url = "jdbc:mysql://localhost:3306/webproject?serverTimezone=UTC";
+		conn = DriverManager.getConnection(url, "root", "0000");
+		stmt = conn.createStatement();
+		String sql = "select * from board where ref=" + ref;
+		rs = stmt.executeQuery(sql);
+	} catch (Exception e) {
+		out.println("DB 연동 오류입니다. : " + e.getMessage());
+	}
+	if (rs != null) {
+		rs.next();
+		name = rs.getString("name");
+		title = rs.getString("title");
+		content = rs.getString("content");
+		ref = Integer.parseInt(rs.getString("ref"));
+		date = rs.getString("date");
+	}
+	%>
+<div id="wrap">
+	<div id="main">
+		<div class="content">
+		<table>
+		<br>
+			<tr>
+				<td width="600" height="40" colspan="4"><h2><%=title%></h2></td>
+			</tr>
+			<tr>
+				<td width="100">작성자:</td>
+				<td><%=name%></td>
+				<td width="100">작성일:</td>
+				<td><%=date%></td>
+			</tr>
+		</table>
+		<hr>
+		<table>
+			<tr>
+				<td height="400" colspan="4"><%=content%></td>
+			</tr>
+		</table>
+		<hr>
+		<div>
+			<%
+			String managername = "";
+			try {
+				String sql = "select * from manager";
+				rs = stmt.executeQuery(sql);
+			} catch (Exception e) {
+				out.println("DB 연동	오류입니다. : " + e.getMessage());
+			}
+			if (rs.next()) {
+				managername = rs.getString("name");
+			}
+
+			if (name.equals(boardname) || managername.equals(boardname)) {
+			%>
+			<button type="button"
+				onclick="location.href='board-modify.jsp?ref=<%=ref%>'">
+				게시글 수정</a>
+				<button type="button"
+					onclick="location.href='board-delete-db.jsp?ref=<%=ref%>'">
+					게시글 삭제</a>
+					<%
+					}
+					%>
+					<button type="button" onclick="location.href='board-list.jsp'">
+						게시글 목록 보기</a>
+		</div>
+		<div class="empty_space"></div>
+		<div class="empty_space"></div>
+		<div class="empty_space"></div>
+
+		<div id="reply_title">
+			<big><b>댓글</b></big><small> 총 20개(실제 개수 따오기)</small>
+		</div>
+
+		<div id="reply_form">
+			<form action="board-comment-insert-db.jsp?id=<%=ref%>" method="post">
+				<textarea name="reply"
+					placeholder="주제와 무관한 댓글, 타인의 권리를 침해하거나 명예를 훼손하는 댓글은 별도의 통보 없이 제재를 받을 수 있습니다."></textarea>
+				<br><br>
+				<button type="submit">등록</button>
+			</form>
+		</div>
+		<hr>
+		<div class="reply_content">
+			<table>
+				<%
+				try {
+					String sql = "select * from boardcomments where id=" + ref;
+					rs = stmt.executeQuery(sql);
+				} catch (Exception e) {
+					out.println("DB 연동	오류입니다. : " + e.getMessage());
+				}
+				while (rs.next()) {
+				%>
+				<tr>
+					<td><a><%=rs.getString("name")%></a></td>
+					<td><%=rs.getString("date")%></td>
+					<td class="contents"><%=rs.getString("content")%></td>
+					<%
+					if (boardname != null) {
+						if (boardname.equals(name)||boardname.equals(managername)) {
+					%>
+					<form
+						action="board-comment-delete-db.jsp?ref=<%=rs.getString("ref")%>&id=<%=ref%>"
+						method="post">
+						<td><input type="submit" value="댓글 삭제" /></td>
+					</form>
+					<%
+					}
+					}
+					%>
+				</tr>
+				<%
+				}
+				stmt.close();
+				conn.close();
+				%>
+			</table>
+			<hr>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>
+<%!private String getCookieValue(Cookie[] cookies, String name) {
+		String value = null;
+		if (cookies == null)
+			return null;
+		for (Cookie cookie : cookies) {
+			if (cookie.getName().equals(name))
+				return cookie.getValue();
+		}
+		return null;
+	}%>
